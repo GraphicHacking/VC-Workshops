@@ -145,9 +145,12 @@ void mouseClicked() {
 void DrawHistogram(PGraphics pg, int px, int py) {
   pg.beginDraw();
   pg.background(100, 50, 30);
-  pg.fill(0,0,255);
+  pg.fill(255);
   pg.textSize(30);
-  pg.text("Gray Scale Histogram",20,30);
+  String txt;
+  if ( lmn ) txt = "Lumen Histogram";
+  else txt = " Gray Scale Histogram";
+  pg.text(txt,20,30);
   int histMax = max(hist);
   pg.stroke(255);
   for (int i = 0; i < pg.width; i ++) {
