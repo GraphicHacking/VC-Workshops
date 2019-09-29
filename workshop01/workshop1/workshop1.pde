@@ -102,7 +102,7 @@ void GenerateGrayScale(PGraphics pg, boolean luma, PImage img, int px, int py) {
   pg.fill(0,0,255);
   if (lmn == true){
     pg.text("Lumen",wpic/2,30);
-  } else { pg.text("Gray Scale" , wpic /2 , 30);}
+  } else { pg.text("AVG" , wpic /2 , 30);}
   pg.endDraw();
   image(pg, px, py);
 }
@@ -122,8 +122,8 @@ void mouseClicked() {
         rangemin = rangemax;
         rangemax = tmp;
       }
-      fr = int(map(rangemin, 0, height, 0, 255));
-      to = int(map(rangemax, 0, height, 0, 255));
+      fr = int(map(rangemin, 0, width, 0, 255));
+      to = int(map(rangemax, 0, width, 0, 255));
       print (rangemax + "  " + rangemin);
     } else {
       rangemin = -10;
@@ -145,9 +145,11 @@ void mouseClicked() {
 void DrawHistogram(PGraphics pg, int px, int py) {
   pg.beginDraw();
   pg.background(100, 50, 30);
+  pg.fill(0,0,255);
+  pg.textSize(30);
+  pg.text("Gray Scale Histogram",20,30);
   int histMax = max(hist);
   pg.stroke(255);
-  // Draw half of the histogram (skip every second value)
   for (int i = 0; i < pg.width; i ++) {
     // Map i (from 0..img.width) to a location in the histogram (0..255)
     int which = int(map(i, 0, pg.width, 0, 255));
