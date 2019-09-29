@@ -28,11 +28,11 @@ void setup() {
   photo = loadImage("img/girl.jpg");
 }
 int n  = 0 ;
-
+boolean lmn = true; 
 void draw() {
-  image(photo, 0, 0);
   loadPixels();
-  //background(0,0,0);
+  background(0,0,0);
+  image(photo, 0, 0);
   if (n == 0) {
     for (int i=0; i <240; i++) {
       for (int j=0; j <240; j++) {
@@ -40,11 +40,11 @@ void draw() {
       }
     }
   }
-  InitHistogram(true, photo);
+  InitHistogram(lmn, photo);
   GenerateFilter(pg_edge, matrix_edge, 3, photo, 240, 0);
   // GenerateFilter(pg_sharpen, matrix_sharpen, 3, photo, 0, 240);
   // GenerateFilter(pg_emboss, matrix_emboss, 3, photo, 240, 240);
-  GenerateGrayScale(pg_luma, false, photo, 480, 0);
+  GenerateGrayScale(pg_luma, lmn, photo, 480, 0);
   // GenerateGrayScale(pg_avg,false,photo,480,240);
   DrawHistogram(pg_hist, 0, 240);  
   n++;
@@ -69,7 +69,7 @@ void InitHistogram(boolean luma, PImage img) {
 
 void GenerateGrayScale(PGraphics pg, boolean luma, PImage img, int px, int py) {
   pg.beginDraw();
-  pg.background(100, 50, 35);
+  //pg.background(100, 50, 35);
   pg.loadPixels();
   for (int x = 0; x < pg.height; x++) {
     for (int y = 0; y < pg.width; y++ ) {
@@ -80,8 +80,9 @@ void GenerateGrayScale(PGraphics pg, boolean luma, PImage img, int px, int py) {
       float result;
       if (luma) result = 0.2126*r+0.7152*g+0.0722*b;
       else result = (r+g+b)/3.0;
-      if ((result > rangemax || result < rangemin ) && (rangemax != -10 && rangemin != -10)) result = 0;
-      pg.pixels[loc] = color(result);
+      color c = color(result);
+      if ((result > to   || result < fr ) && (rangemax != -10 && rangemin != -10)) c = color(0,0,0);
+      pg.pixels[loc] = c;
     }
   }
   pg.updatePixels();
@@ -92,35 +93,46 @@ int clk = 0;
 int rangemin = -10;
 int rangemax = -10;
 void mouseClicked() {
-  if (fr == -1) fr = 80;
-  else if (to == -1) to = 150;
-  else fr = to = -1;
-  print(clk + "  ");
-  if (clk == 0) {
-    clk =1; 
-    rangemin = mouseX;
-  } else if (clk == 1) {
-    clk = 2; 
-    rangemax = mouseX;
-  } else if (clk == 2) {
-    rangemin = -10;
-    rangemax = -10;
-    clk = 0;
+  if(mouseX > hist0 && mouseX < hist2 && mouseY > hist1 && mouseY < hist3){
+    if (clk == 0) {
+      clk =1; 
+      rangemin = mouseX;
+    } else if (clk == 1) {
+      clk = 2; 
+      rangemax = mouseX;
+      if(rangemin > rangemax){ 
+        int tmp = rangemin ; 
+        rangemin = rangemax;
+        rangemax = tmp;
+      }
+      fr = int(map(rangemin, hist0, hist2, 0, 255));
+      to = int(map(rangemax, hist0, hist2, 0, 255));
+      print (rangemax + "  " + rangemin);
+    } else {
+      rangemin = -10;
+      rangemax = -10;
+      clk = 0;
+    }
+  }else{
+    lmn = !lmn; 
+    print (lmn);
   }
-  if(rangemin > rangemax && rangemax != -10){ 
-    print(rangemin + ">" + rangemax);
-    int tmp = rangemin ; 
-    rangemin = rangemax;
-    rangemax = tmp;}
 }
-
+int hist0;
+int hist1; 
+int hist2;
+int hist3;
 void DrawHistogram(PGraphics pg, int px, int py) {
   pg.beginDraw();
   pg.background(100, 50, 30);
   int histMax = max(hist);
+  hist0 = px;
+  hist1 = py;
+  hist2 = px + pg.width; 
+  hist3 = py + pg.height; 
   pg.stroke(255);
   // Draw half of the histogram (skip every second value)
-  for (int i = 0; i < pg.width; i += 2) {
+  for (int i = 0; i < pg.width; i ++) {
     // Map i (from 0..img.width) to a location in the histogram (0..255)
     int which = int(map(i, 0, pg.width, 0, 255));
     // Convert the histogram value to a location between 
