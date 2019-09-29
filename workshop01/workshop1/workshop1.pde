@@ -1,31 +1,47 @@
 PImage photo;
 
 
-PGraphics pg_edge, pg_sharpen, pg_emboss, pg_luma, pg_avg, pg_hist ;
+PGraphics pg_filter, pg_grayscale, pg_hist ;
 
-float[][] matrix_edge = { { -1, -1, -1 }, 
-  { -1, 8, -1 }, 
-  { -1, -1, -1 } }; 
-float[][] matrix_emboss = { { 0, 1, 0 }, 
-  { 0, 0, 0 }, 
-  { 0, -1, 0} };
-float[][] matrix_sharpen = { { 0, -1, 0 }, 
-  { -1, 5, -1 }, 
-  { 0, -1, 0} };                     
-
-float [][] selected_matrix = matrix_edge;
+//float[][] matrix_edge = { { -1, -1, -1 }, 
+//  { -1, 8, -1 }, 
+//  { -1, -1, -1 } }; 
+//float[][] matrix_emboss = { { 0, 1, 0 }, 
+//  { 0, 0, 0 }, 
+//  { 0, -1, 0} };
+//float[][] matrix_sharpen = { { 0, -1, 0 }, 
+//  { -1, 5, -1 }, 
+//  { 0, -1, 0} };                     
+// 0 matrix edge
+// 1 matrix emboss
+// 2 matrix sharpen
+float [][][] all_matrix = {{ { -1, -1, -1 },
+                             { -1, 8 , -1 },  
+                             { -1, -1, -1 } },
+                           { { 0 , 1 , 0 }, 
+                             { 0 , 0 , 0 }, 
+                             { 0 , -1, 0 } }, 
+                           { { 0 , -1, 0 }, 
+                             { -1, 5, -1 }, 
+                             { 0, -1, 0} }};
+String mname [] = { "Edge", "Emboss" , "Sharpen"};
+int currm = 0;
+float [][] selected_matrix = all_matrix[currm];
 
 int hist[] = new int[256];
 int fr = -1, to = -1;
+int wpic;
+int hpic;
 void setup() {
-  size(960, 480);
-  pg_edge = createGraphics(240, 240);
-  pg_sharpen = createGraphics(240, 240);
-  pg_emboss = createGraphics(240, 240);
-  pg_luma = createGraphics(240, 240);
-  pg_hist = createGraphics(500, 240);
-  pg_avg = createGraphics(240, 240);
+  size(900, 600);
+  wpic = width/3;
+  hpic= height/2;
+  pg_filter = createGraphics(wpic, hpic);
+  pg_hist = createGraphics(width,height/2);
+  pg_grayscale = createGraphics(wpic, hpic);
   photo = loadImage("img/girl.jpg");
+  photo.resize(wpic, hpic);
+  InitHistogram(lmn, photo);
 }
 int n  = 0 ;
 boolean lmn = true; 
@@ -40,13 +56,9 @@ void draw() {
       }
     }
   }
-  InitHistogram(lmn, photo);
-  GenerateFilter(pg_edge, matrix_edge, 3, photo, 240, 0);
-  // GenerateFilter(pg_sharpen, matrix_sharpen, 3, photo, 0, 240);
-  // GenerateFilter(pg_emboss, matrix_emboss, 3, photo, 240, 240);
-  GenerateGrayScale(pg_luma, lmn, photo, 480, 0);
-  // GenerateGrayScale(pg_avg,false,photo,480,240);
-  DrawHistogram(pg_hist, 0, 240);  
+  GenerateFilter(pg_filter, selected_matrix, 3, photo, wpic, 0);
+  GenerateGrayScale(pg_grayscale, lmn, photo, wpic*2, 0);
+  DrawHistogram(pg_hist, 0, height/2);  
   n++;
 }
 
@@ -86,6 +98,11 @@ void GenerateGrayScale(PGraphics pg, boolean luma, PImage img, int px, int py) {
     }
   }
   pg.updatePixels();
+  pg.textSize(30);
+  pg.fill(0,0,255);
+  if (lmn == true){
+    pg.text("Lumen",wpic/2,30);
+  } else { pg.text("Gray Scale" , wpic /2 , 30);}
   pg.endDraw();
   image(pg, px, py);
 }
@@ -93,7 +110,7 @@ int clk = 0;
 int rangemin = -10;
 int rangemax = -10;
 void mouseClicked() {
-  if(mouseX > hist0 && mouseX < hist2 && mouseY > hist1 && mouseY < hist3){
+  if(mouseY > hpic){
     if (clk == 0) {
       clk =1; 
       rangemin = mouseX;
@@ -105,31 +122,30 @@ void mouseClicked() {
         rangemin = rangemax;
         rangemax = tmp;
       }
-      fr = int(map(rangemin, hist0, hist2, 0, 255));
-      to = int(map(rangemax, hist0, hist2, 0, 255));
+      fr = int(map(rangemin, 0, height, 0, 255));
+      to = int(map(rangemax, 0, height, 0, 255));
       print (rangemax + "  " + rangemin);
     } else {
       rangemin = -10;
       rangemax = -10;
       clk = 0;
     }
-  }else{
+  }else if (mouseX>wpic*2  && mouseY<wpic && mouseY>0 ){
     lmn = !lmn; 
-    print (lmn);
+    for ( int i = 0 ; i < 256; i++){
+      hist[i] = 0;
+    }
+    InitHistogram(lmn, photo);
+  }else if (mouseX > wpic && mouseX < wpic*2 && mouseY < hpic){
+    currm = (currm+1) % 3;
+    selected_matrix = all_matrix[currm];
   }
 }
-int hist0;
-int hist1; 
-int hist2;
-int hist3;
+
 void DrawHistogram(PGraphics pg, int px, int py) {
   pg.beginDraw();
   pg.background(100, 50, 30);
   int histMax = max(hist);
-  hist0 = px;
-  hist1 = py;
-  hist2 = px + pg.width; 
-  hist3 = py + pg.height; 
   pg.stroke(255);
   // Draw half of the histogram (skip every second value)
   for (int i = 0; i < pg.width; i ++) {
@@ -145,10 +161,9 @@ void DrawHistogram(PGraphics pg, int px, int py) {
   pg.endDraw();
   image(pg, px, py); 
   strokeWeight(15); 
-  stroke(255, 127, 80);
-  point(rangemin, 450);
-  stroke(20,75,200);
-  point(rangemax, 450);
+  stroke(255,127,80);
+  point(rangemin, height-10);
+  point(rangemax, height-10);
 }
 
 void GenerateFilter( PGraphics pg, float[][] matrix, int matrixsize, PImage img, int px, int py) {
@@ -164,6 +179,9 @@ void GenerateFilter( PGraphics pg, float[][] matrix, int matrixsize, PImage img,
     }
   }
   pg.updatePixels();
+  pg.textSize(30);
+  pg.fill(0,0,255);
+  pg.text(mname[currm],pg.width/2, 30);
   pg.endDraw();
   image(pg, px, py);
 }
