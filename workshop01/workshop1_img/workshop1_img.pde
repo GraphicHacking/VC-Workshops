@@ -190,8 +190,8 @@ void GenerateFilter( PGraphics pg, float[][] matrix, int matrixsize, PImage img,
   pg.endDraw();
   image(pg, px, py);
 }
-
-
+// References:
+//https://processing.org/examples/convolution.html
 color convolution(int x, int y, float[][] matrix, int matrixsize, PImage img)
 {
   float rtotal = 0.0;

@@ -115,8 +115,8 @@ void GenerateFilter( PGraphics pg, float[][] matrix, int matrixsize, Capture vid
   pg.endDraw();
   image(pg, px, py);
 }
-
-
+// References:
+// https://processing.org/examples/convolution.html
 color convolution(int x, int y, float[][] matrix, int matrixsize, Capture vid)
 {
   vid.read();
