@@ -149,7 +149,7 @@ void DrawHistogram(PGraphics pg, int px, int py) {
   pg.textSize(30);
   String txt;
   if ( lmn ) txt = "Lumen Histogram";
-  else txt = " Gray Scale Histogram";
+  else txt = " AVG Histogram";
   pg.text(txt,20,30);
   int histMax = max(hist);
   pg.stroke(255);
