@@ -39,7 +39,7 @@ void setup() {
   pg_filter = createGraphics(wpic, hpic);
   pg_hist = createGraphics(width,height/2);
   pg_grayscale = createGraphics(wpic, hpic);
-  photo = loadImage("img/girl.jpg");
+  photo = loadImage("img/tisa.jpeg");
   photo.resize(wpic, hpic);
   InitHistogram(lmn, photo);
 }
