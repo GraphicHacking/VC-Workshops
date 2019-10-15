@@ -24,14 +24,16 @@ Complete la tabla:
 
 1. Complete la tabla
 
-| Ilusión | Categoria | Referencia | Tipo de interactividad (si aplica) | URL código base (si aplica) |
-|---------|-----------|------------|------------------------------------|-----------------------------|
-|Stepping Feet Illusion     | Movement         |    https://en.wikipedia.org/wiki/Stepping_Feet_Illusion        |      Clic                     |          N/A                     |
-|Strecth Lines         |  Cognitive         |      Propia  - Serendipia    |                    Clic               |               N/A                |
-|Rotating Crosses         |  Movement    |      https://www.telegraph.co.uk/news/newstopics/howaboutthat/12066017/Motion-induced-blindness-optical-illusion-Do-you-see-the-dots.html      |          N/A                          |    N/A                         |
-|    |           |            |                                    |                             |
-|         |           |            |                                    |                             |
-|         |           |            |                                    |                             |
+ | Ilusión | Categoria | Referencia | Tipo de interactividad (si aplica) | URL código base (si aplica) |
+ |---------|-----------|------------|------------------------------------|-----------------------------|
+ |Stepping Feet Illusion     | Movement         |    https://en.wikipedia.org/wiki/Stepping_Feet_Illusion        |      Clic                     |          N/A                     |
+ |Strecth Lines         |  Cognitive         |      Propia  - Serendipia    |                    Clic               |               N/A                |
+ |Rotating Crosses         |  Movement    |      https://www.telegraph.co.uk/news/newstopics/howaboutthat/12066017/Motion-induced-blindness-optical-illusion-Do-you-see-the-dots.html      |          N/A                              |    N/A                         |
+ |White's Illusion    |Physiological           |https://en.wikipedia.org/wiki/White's_illusion            |     Click                               |                             |
+ |Hering Illusion         | Geometrical-Optical          | https://en.wikipedia.org/wiki/Hering_illusion           | None                                   |  N/A                           |
+ |Curve Stiching         |  Geometrial-Optical         |https://www.youtube.com/watch?v=xY2U28etO0A            | Click                                   | N/A                            |
+|Ebbinghaus Illusion | Others                         |http://visualcomputing.github.io/Cognitive/#/5/28 | Click | N/A|
+
 
 2. Describa brevememente las referencias estudiadas y los posibles temas en los que le gustaría profundizar
 
