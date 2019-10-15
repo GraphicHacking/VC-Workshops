@@ -38,6 +38,7 @@ Complete la tabla:
 2. Describa brevememente las referencias estudiadas y los posibles temas en los que le gustaría profundizar
 
 * jschavesr - Dentro de las referencias consultadas se encuentran, la presentación del [curso](https://github.com/VisualComputing/Cognitive), las documentación de la librería [p5js](https://p5js.org/es/reference/). Me gustaria profundizar en temas de geometria computacional en 3D, uno de mis hobbies es la programación competitiva y uno de los temás evaluados en estas competencias es geometria, enfocada la mayoría del tiempo, por lo que tengo conocimientos en manejo de vectores, representacion de poligonos, lineas, rotaciones, etc. 
+* Laura Santos Guerrero - Para la realización del taller, hice uso de conceptos de trigonometría, es muy interesante ver las matemáticas visualmente. La librería P5.js ayuda mucho, en el sentido que uno puede enfocarse directamente en la parte visual (generar las ilusiones),y eso vuelve más productivo trabajar. Es muy bonito trabajar la programación de esta manera, como teniendo manejo espacial. Me gustaría seguir trabajando el manejo espacial, usando matemáticas. 
 
 ## Entrega
 
