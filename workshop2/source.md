@@ -36,39 +36,41 @@ H:
 H:
 
 ## LAURA SANTOS EXAMPLES
-* Brightness
-* Motion
+* Whites Ilussion 
+* Ebbinghaus Illusion (movement)
+* Hering Illusion 
+* Curve Stitching
 
 V:
 ## LAURA SANTOS EXAMPLES
-### Brightness
+### Whites Ilussion
 <figure>
     <div id='mysketch_id'></div>
-    <figcaption>mySketch2</figcaption>
+    <figcaption>Whites Ilussion</figcaption>
 </figure>
 
 V:
 ## LAURA SANTOS EXAMPLES
-### Motion
+### Ebbinghaus Illusion (movement)
 <figure>
     <div id='motionCircles_id'></div>
-    Motion Circles Illusion
+    Click to see central circle alone
 </figure>
 
 V:
 ## LAURA SANTOS EXAMPLES
-### Curved Line
+### Hering Illusion
 <figure>
     <div id='curvedLine_id'></div>
-    Curved Line Illusion
+    The red lines are not curved. 
 </figure>
 
 V:
 ## LAURA SANTOS EXAMPLES
-### Depth Lines
+### Curve Stitching
 <figure>
     <div id='depthLines_id'></div>
-    Depth Lines Illusion
+    Click right/left side of the canvas to add/decrease lines.
 </figure>
 
 H:
