@@ -89,6 +89,15 @@ V:
 ## JS CHAVES
 ### Motion
 <figure>
+    <div id='rotating_cross_id'></div>
+    Motion Circles Illusion
+</figure>
+
+
+V:
+## JS CHAVES
+### Motion
+<figure>
     <div id='rotating_crosses_id'></div>
     Motion Circles Illusion
 </figure>
