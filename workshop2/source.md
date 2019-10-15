@@ -74,15 +74,15 @@ V:
 H:
 
 ## JS CHAVES EXAMPLES
-* Brightness
-* Motion
+* Cognitive
+* Movement
 
 V:
 ## JS CHAVES EXAMPLES
 ### Brightness
 <figure>
     <div id='moving_rectangles_id'></div>
-    <figcaption>mySketch2</figcaption>
+    <figcaption>Stepping Feet Illusion</figcaption>
 </figure>
 
 V:
@@ -90,7 +90,7 @@ V:
 ### Motion
 <figure>
     <div id='rotating_cross_id'></div>
-    Motion Circles Illusion
+    Strecth Lines	
 </figure>
 
 
@@ -99,6 +99,6 @@ V:
 ### Motion
 <figure>
     <div id='rotating_crosses_id'></div>
-    Motion Circles Illusion
+    Rotating Crosses
 </figure>
 
