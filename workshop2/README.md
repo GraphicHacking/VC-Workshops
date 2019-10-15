@@ -32,6 +32,7 @@ Complete la tabla:
  |White's Illusion    |Physiological           |https://en.wikipedia.org/wiki/White's_illusion            |     Click                               |                             |
  |Hering Illusion         | Geometrical-Optical          | https://en.wikipedia.org/wiki/Hering_illusion           | None                                   |  N/A                           |
  |Curve Stiching         |  Geometrial-Optical         |https://www.youtube.com/watch?v=xY2U28etO0A            | Click                                   | N/A                            |
+|Ebbinghaus Illusion | Others                         |http://visualcomputing.github.io/Cognitive/#/5/28 | Click | N/A|
 
 
 2. Describa brevememente las referencias estudiadas y los posibles temas en los que le gustaría profundizar
