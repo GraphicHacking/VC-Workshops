@@ -1,5 +1,5 @@
 var sketch = function( p ) {
-    var nlines = [3,5,7,10,12,17,20];
+    var nlines = [2,4,8,10,16,20,25];
     var sep,c = 4;
     p.setup = function() {
       p.createCanvas(400, 400);
@@ -7,10 +7,14 @@ var sketch = function( p ) {
     };
     p.draw = function(){
         p.background(255); 
-        //console.log(p.width/2 + "   " + 0 + "   " + p.width/2, + "   " + p.height);
+        p.strokeWeight(1);
         p.line(0,p.height/2,p.width,p.height/2);
         p.line(p.width/2,0,p.width/2,p.height);
         p.drawLines();
+        p.strokeWeight(7);
+        p.line(20,p.height-20,40,p.height-20);
+        p.line(p.width-30,p.height-30,p.width-30,p.height-10);
+        p.line(p.width-20,p.height-20,p.width - 40,p.height-20);
     };
     p.drawLines = function(){
         sep = p.height/2/nlines[c];
