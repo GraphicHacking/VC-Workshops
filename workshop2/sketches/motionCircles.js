@@ -1,6 +1,6 @@
 var sketch = function( p ) {
 
-    var flag = 0 ,xi = 85 , yi = 85, ang = 60, r = 80 , dir = 1 , c = 10 , v = 6;
+    var flag = 0 ,xi = 85 , yi = 85, ang = 60, r = 80 , dir = 1 , c = 10 , v = 5;
     var x , y  ; 
   
     p.setup = function() {
