@@ -240,11 +240,11 @@ void keyPressed() {
   if (key == 'd')
     debug = !debug;
   if (key == '+') {
-    n = n < 7 ? n+1 : 2;
+    n = n < 8 ? n+1 : 2;
     node.setScaling(width/pow( 2, n));
   }
   if (key == '-') {
-    n = n >2 ? n-1 : 7;
+    n = n >2 ? n-1 : 8;
     node.setScaling(width/pow( 2, n));
   }
   if (key == 'r')
@@ -256,4 +256,7 @@ void keyPressed() {
       spinningTask.run();
   if (key == 'y')
     yDirection = !yDirection;
+    
+  if (key == 'a')
+    max_depth = (max_depth  == 4 ? 0 : 4);
 }
