@@ -31,24 +31,24 @@ int max_depth = 3;
 int GetNumberSubPixelsIn(Vector down_left, Vector up_right, int cur_depth) {
   
   if (cur_depth == max_depth)
-    return IsPointInsideTriangle( new Vector((up_right.x()-down_left.x())/2, (up_right.y()-down_left.y())/2),
+    return IsPointInsideTriangle( new Vector((up_right.x()+down_left.x())/2, (up_right.y()+down_left.y())/2),
                                               v1_node, v2_node, v3_node) ? 1 : 0;
   
   int num_inter = 0;
-  Vector vec1 = new Vector(down_left.x(), (up_right.y()-down_left.y())/2.0); 
-  Vector vec2 = new Vector((up_right.x()-down_left.x())/2.0, up_right.y()); 
+  Vector vec1 = new Vector(down_left.x(), (up_right.y()+down_left.y())/2.0); 
+  Vector vec2 = new Vector((up_right.x()+down_left.x())/2.0, up_right.y()); 
   num_inter += GetNumberSubPixelsIn(vec1, vec2, cur_depth+1);
   
-  vec1 = new Vector((up_right.x() - down_left.x())/2.0, (up_right.y()-down_left.y())/2.0); 
+  vec1 = new Vector((up_right.x() + down_left.x())/2.0, (up_right.y()+down_left.y())/2.0); 
   vec2 = new Vector(up_right.x(), up_right.y()); 
   num_inter += GetNumberSubPixelsIn(vec1, vec2, cur_depth+1);
   
   vec1 = new Vector( down_left.x(), down_left.y()); 
-  vec2 = new Vector((up_right.x() - down_left.x())/2, (up_right.y()-down_left.y())/2.0); 
+  vec2 = new Vector((up_right.x() + down_left.x())/2, (up_right.y()+down_left.y())/2.0); 
   num_inter += GetNumberSubPixelsIn(vec1, vec2, cur_depth+1);
   
-  vec1 = new Vector( (up_right.x()- down_left.x())/2, down_left.y()); 
-  vec2 = new Vector(up_right.x() , (up_right.y()-down_left.y())/2.0); 
+  vec1 = new Vector( (up_right.x() + down_left.x())/2, down_left.y()); 
+  vec2 = new Vector(up_right.x() , (up_right.y()+down_left.y())/2.0); 
   num_inter += GetNumberSubPixelsIn(vec1, vec2, cur_depth+1);
     
   
@@ -164,8 +164,7 @@ void triangleRaster() {
       if (opacity > 0) {
         Vector p = new Vector(i, j);
         color c = GetColor(p, v1_node, v2_node, v3_node);
-        fill(c);
-        tint(1, opacity);
+        fill(red(c), green(c) , blue(c) , opacity*255);
         square(i, j, 1);
         
       }
