@@ -1,0 +1,18 @@
+{
+  "eye": {
+    "orientation": [
+      0,
+      0,
+      0,
+      1
+    ],
+    "magnitude": 1,
+    "position": [
+      0,
+      0,
+      0
+    ]
+  },
+  "radius": 256,
+  "type": "TWO_D"
+}
