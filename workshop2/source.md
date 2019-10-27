@@ -104,3 +104,16 @@ V:
         Rotating Crosses
 </figure>
 
+H:
+
+## J. C. R. PUENTES EXAMPLES
+* Kanizsa Illusion
+* Movement
+
+V:
+## J. C. R. PUENTES EXAMPLES
+### Kanizsa Illusion
+<figure>
+    <div id='rotatingCircles_id'></div>
+    <figcaption>Rotating Circles</figcaption>
+</figure>
