@@ -25,11 +25,34 @@ Complete la tabla:
 
 | Integrante | github nick |
 |------------|-------------|
-|            |             |
-
+|Juan Sebastian Chaves Ramirez|jschavesr|
+|Laura Beatriz Santos Guerrero|lsfinite|
+|Juan Camilo Rodríguez Puentes|Juankmilo97|
+	
 ## Discusión
 
-Describa los resultados obtenidos. En el caso de anti-aliasing describir las técnicas exploradas, citando las referencias.
+Los objetivos del taller propuesto fueron:
+
+1. Rasterizar un triángulo.
+2. Sombrear su superficie a partir de los colores de sus vértices.
+3. Implementar un [algoritmo de anti-aliasing](https://www.scratchapixel.com/lessons/3d-basic-rendering/rasterization-practical-implementation/rasterization-practical-implementation) para sus aristas.
+
+
+Algoritmo de Anti-Aliasing :
+
+Se busca que los píxeles individuales dentro de un polígono se dividan en múltiples muestras de cobertura, con la finalidad de analizar el color de los píxeles que rodean cada una de estas muestras,y producir un promedio de las mismas, que determinen el color general del píxel original.
+
+### Referencias
+
+[Diapositivas de Steve Marschner sobre Rasterization](https://github.com/GraphicHacking/VC-Workshops/blob/master/workshop3/13rasterization.pdf) de la Univerisad de Cornell { *CS4620 Fall 2014 • Lecture 13* }
+
+[Diapositivas del Karlsruhe Institute of Technology](https://github.com/GraphicHacking/VC-Workshops/blob/master/workshop3/01_rasterisierung.pdf)
+
+[Estrategias de Antialiasing ](https://web.cs.wpi.edu/~matt/courses/cs563/talks/antialiasing/methods.html)
+ 
+[Comparación de Antialising](https://sapphirenation.net/anti-aliasing-comparison-performance-quality/)
+ 
+[How To Choose the Right Anti-Aliasing Mode](https://www.tested.com/tech/pcs/1194-how-to-choose-the-right-anti-aliasing-mode-for-your-gpu/)
 
 ## Entrega
 
