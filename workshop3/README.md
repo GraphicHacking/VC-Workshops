@@ -53,6 +53,7 @@ _Triángulo SIN anti-aliasing_
 _Triángulo CON anti-aliasing_
 
 ![Triangle Rasterization](withAAraster.png)
+
 _Triángulo Rasterizado_
 
 ### Referencias
