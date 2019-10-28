@@ -40,12 +40,16 @@ Los objetivos del taller propuesto fueron:
 
 Algoritmo de Anti-Aliasing :
 
+![alt text](AAexplaining.png "Algoritmo")
+
 Se busca que los píxeles individuales dentro de un polígono se dividan en múltiples muestras de cobertura, con la finalidad de analizar el color de los píxeles que rodean cada una de estas muestras,y producir un promedio de las mismas, que determinen el color general del píxel original.
 
 ![Without Anti Aliasing](withoutAA.png)
+
 _Triángulo SIN anti-aliasing_
 
 ![With Anti Aliasing](withAA.png)
+
 _Triángulo CON anti-aliasing_
 
 ### Referencias
@@ -53,6 +57,8 @@ _Triángulo CON anti-aliasing_
 [Diapositivas de Steve Marschner sobre Rasterization](https://github.com/GraphicHacking/VC-Workshops/blob/master/workshop3/13rasterization.pdf) de la Univerisad de Cornell { *CS4620 Fall 2014 • Lecture 13* }
 
 [Diapositivas sobre Rasterization](https://github.com/GraphicHacking/VC-Workshops/blob/master/workshop3/01_rasterisierung.pdf) del Karlsruhe Institute of Technology
+
+[Características de los métodos de suavizado](http://overclock.pl/articles/show/id/697,2,5,charakterystyka-metod-wygladzania)
 
 [Estrategias de Antialiasing ](https://web.cs.wpi.edu/~matt/courses/cs563/talks/antialiasing/methods.html)
  
