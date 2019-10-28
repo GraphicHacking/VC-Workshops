@@ -33,16 +33,16 @@ Complete la tabla:
 
 Los objetivos del taller propuesto fueron:
 
-1. Rasterizar un triángulo.
-2. Sombrear su superficie a partir de los colores de sus vértices.
-3. Implementar un [algoritmo de anti-aliasing](https://www.scratchapixel.com/lessons/3d-basic-rendering/rasterization-practical-implementation/rasterization-practical-implementation) para sus aristas.
+- [x] Rasterizar un triángulo.
+- [x] Sombrear su superficie a partir de los colores de sus vértices.
+- [x] Implementar un [algoritmo de anti-aliasing](https://www.scratchapixel.com/lessons/3d-basic-rendering/rasterization-practical-implementation/rasterization-practical-implementation) para sus aristas.
 
 
 Algoritmo de Anti-Aliasing :
 
 ![alt text](AAexplaining.png "Algoritmo")
 
-Se busca que los píxeles individuales dentro de un polígono se dividan en múltiples muestras de cobertura, con la finalidad de analizar el color de los píxeles que rodean cada una de estas muestras,y producir un promedio de las mismas, que determinen el color general del píxel original.
+Se busca que los píxeles individuales dentro de un polígono se dividan en múltiples muestras de cobertura, con la finalidad de analizar el color de los píxeles que rodean cada una de estas muestras, y producir un promedio de las mismas, que determinen el color general del píxel original.
 
 ![Without Anti Aliasing](withoutAA.png)
 
@@ -52,17 +52,20 @@ _Triángulo SIN anti-aliasing_
 
 _Triángulo CON anti-aliasing_
 
+![Triangle Rasterization](withAAraster.png)
+_Triángulo Rasterizado_
+
 ### Referencias
 
-[Diapositivas de Steve Marschner sobre Rasterization](https://github.com/GraphicHacking/VC-Workshops/blob/master/workshop3/13rasterization.pdf) de la Univerisad de Cornell { *CS4620 Fall 2014 • Lecture 13* }
+[Diapositivas de Steve Marschner sobre Rasterization](https://github.com/GraphicHacking/VC-Workshops/blob/master/workshop3/13rasterization.pdf) de la Universidad de Cornell { *CS4620 Fall 2014 • Lecture 13* }
 
 [Diapositivas sobre Rasterization](https://github.com/GraphicHacking/VC-Workshops/blob/master/workshop3/01_rasterisierung.pdf) del Karlsruhe Institute of Technology
 
 [Características de los métodos de suavizado](http://overclock.pl/articles/show/id/697,2,5,charakterystyka-metod-wygladzania)
 
-[Estrategias de Antialiasing ](https://web.cs.wpi.edu/~matt/courses/cs563/talks/antialiasing/methods.html)
+[Estrategias de Anti-aliasing](https://web.cs.wpi.edu/~matt/courses/cs563/talks/antialiasing/methods.html)
  
-[Comparación de Antialising](https://sapphirenation.net/anti-aliasing-comparison-performance-quality/)
+[Comparación de Anti-alising](https://sapphirenation.net/anti-aliasing-comparison-performance-quality/)
  
 [How To Choose the Right Anti-Aliasing Mode](https://www.tested.com/tech/pcs/1194-how-to-choose-the-right-anti-aliasing-mode-for-your-gpu/)
 
